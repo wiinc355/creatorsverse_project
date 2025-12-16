@@ -2,9 +2,7 @@
 
 Submitted by: **👉🏿 Derrick Woodall **
 
-About this web app: **👉🏿 build a frontend that supports CRUD (create, read, update, and delete) operations on your favorite content creators. Your content creators can be Twitch streamers, YouTube channels, Instagram personalities, TikTok accounts, or similar. Heck, they can even be Mastodon microbloggers.<img width="468" height="59" alt="image" src="https://github.com/user-attachments/assets/ea515b5a-82c0-4b4f-a063-53bf0cbf0650" />
-
-**
+About this web app: **👉🏿 Build a frontend that supports CRUD (create, read, update, and delete) operations on your favorite content creators. **
 
 Time spent: **👉🏿 15 ** hours
 
@@ -52,7 +50,7 @@ Describe any challenges encountered while building the app or any additional con
 
 ## License
 
-Copyright [👉🏿 yyyy] [👉🏿 name of copyright owner]
+Copyright [👉🏿 2026] [👉🏿 WIINC]
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
