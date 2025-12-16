@@ -29,7 +29,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
+* [X] List anything else that you added to improve the site's functionality!
+   - Added a Cancel button to allow users to return to the previous page without saving changes.
 
 ## Video Walkthrough
 
