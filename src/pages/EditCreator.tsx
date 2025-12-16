@@ -5,7 +5,7 @@ import { Creator } from "../types";
 
 export default function EditCreator() {
   const { id } = useParams<{ id: string }>();
-  const nav = useNavigate();
+  const navigate = useNavigate();
   const [form, setForm] = useState<Creator | null>(null);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -18,7 +18,12 @@ export default function EditCreator() {
   async function load() {
     try {
       setLoading(true);
-      const { data, error } = await supabase.from("creators").select("*").eq("id", id).single();
+      const { data, error } = await supabase
+        .from("creators")
+        .select("*")
+        .eq("id", id)
+        .single();
+
       if (error) throw error;
       setForm(data);
     } catch (err) {
@@ -29,17 +34,22 @@ export default function EditCreator() {
   }
 
   function change<K extends keyof Creator>(key: K, value: Creator[K]) {
-    setForm(prev => prev ? { ...prev, [key]: value } : prev);
+    setForm(prev => (prev ? { ...prev, [key]: value } : prev));
   }
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault();
     if (!form || !id) return;
+
     try {
       setSaving(true);
-      const { error } = await supabase.from("creators").update(form).eq("id", id);
+      const { error } = await supabase
+        .from("creators")
+        .update(form)
+        .eq("id", id);
+
       if (error) throw error;
-      nav(`/creator/${id}`);
+      navigate(-1); // or navigate(`/creator/${id}`)
     } catch (err) {
       console.error("Update error", err);
       alert("Failed to save");
@@ -58,26 +68,50 @@ export default function EditCreator() {
       <form onSubmit={handleSave} style={{ display: "grid", gap: 8, maxWidth: 640 }}>
         <label>
           Name
-          <input value={form.name} onChange={e => change("name", e.target.value)} required />
+          <input
+            value={form.name}
+            onChange={e => change("name", e.target.value)}
+            required
+          />
         </label>
 
         <label>
           URL
-          <input value={form.url} onChange={e => change("url", e.target.value)} required />
+          <input
+            value={form.url}
+            onChange={e => change("url", e.target.value)}
+            required
+          />
         </label>
 
         <label>
           Image URL
-          <input value={form.imageURL || ""} onChange={e => change("imageURL", e.target.value || undefined)} />
+          <input
+            value={form.imageURL || ""}
+            onChange={e => change("imageURL", e.target.value)}
+          />
         </label>
 
         <label>
           Description
-          <textarea value={form.description || ""} onChange={e => change("description", e.target.value || undefined)} />
+          <textarea
+            value={form.description || ""}
+            onChange={e => change("description", e.target.value)}
+          />
         </label>
 
-        <div>
-          <button type="submit" disabled={saving}>{saving ? "Saving…" : "Save changes"}</button>
+        {/* ✅ ACTION BUTTONS */}
+        <div style={{ display: "flex", gap: 10, marginTop: 20 }}>
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+          >
+            Cancel
+          </button>
+
+         <button type="submit" disabled={saving}>
+          {saving ? "Saving…" : "Save changes"}
+         </button>
         </div>
       </form>
     </div>

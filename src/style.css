@@ -93,4 +93,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  
+  .form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions button {
+  display: inline-block;
+}
 }
