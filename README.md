@@ -4,7 +4,7 @@ Submitted by: **👉🏿 Derrick Woodall **
 
 About this web app: **👉🏿 Creatorverse is a full-stack web application that lets users explore, add, edit, and manage their favorite content creators. The app demonstrates core CRUD functionality by interacting with an external API and persisting creator data. It showcases how personal interests and digital influences shape identity through the creators people follow. **
 
-Time spent: **👉🏿 15 ** hours
+Time spent: **👉🏿 6 ** hours
 
 ## Required Features
 
